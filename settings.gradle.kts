@@ -22,6 +22,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "OrganicChem BD"
+rootProject.name = "Tarek's Organic Chem"
 
 include(":app")

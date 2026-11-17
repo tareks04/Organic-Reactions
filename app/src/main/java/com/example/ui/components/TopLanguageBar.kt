@@ -91,7 +91,9 @@ fun TopLanguageBar(
           Spacer(modifier = Modifier.width(10.dp))
           Column {
             Text(
-              text = if (language == AppLanguage.EN) "OrganicChem BD" else "জৈব রসায়ন BD",
+              text =
+                if (language == AppLanguage.EN) "Tarek's Organic Chem"
+                else "তারেকের জৈব রসায়ন",
               fontFamily = if (language == AppLanguage.EN) DisplayFontFamily else BengaliFontFamily,
               fontWeight = FontWeight.Bold,
               fontSize = 16.sp,
