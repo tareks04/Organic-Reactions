@@ -185,8 +185,10 @@ object ReactionsDataPart3 {
         limitationBn = "এই বিক্রিয়ায় মিথেন (CH₄) তৈরি করা যায় না! বিজোড় অ্যালকেন বানালে ৩টি অ্যালকেনের মিশ্রণ তৈরি হয়।",
         examNoteEn = "Dry ether is mandatory because Na reacts explosively with water/moisture.",
         examNoteBn = "সাবধান: মিথেন প্রস্তুতি উর্টজ বিক্রিয়ায় অসম্ভব (সর্বনিম্ন উৎপাদ ইথেন)।",
-        pdfCitations = listOf("part 4, p. 14", "part 2, p. 16"),
-        parts = listOf("part 4", "part 2"),
+        pdfCitations = listOf("part 4, p. 14", "part 2, p. 16", "Hazari & Nag HSC Ch. 2 (#1)"),
+        parts = listOf("part 4", "part 2", "hazari-nag"),
+        hazariNagChapter = com.example.data.model.HazariNagChapter.HYDROCARBONS_AROMATICS,
+        hazariNagTopicLabel = "হাজারী ও নাগ · Ch.2 #1",
       ),
       NamedReaction(
         id = 56,
@@ -210,8 +212,10 @@ object ReactionsDataPart3 {
         limitationBn = "পার্শ্ব-বিক্রিয়ায় কিছু বাইফিনাইল (Ar-Ar) ও অ্যালকেন (R-R) তৈরি হতে পারে।",
         examNoteEn = "Aryl + Aryl = Fittig; Alkyl + Alkyl = Wurtz; Aryl + Alkyl = Wurtz-Fittig!",
         examNoteBn = "মনে রাখার সহজ সূত্র: অ্যালকাইল + অ্যালকাইল = উর্টজ; অ্যারাইল + অ্যারাইল = ফিটিগ; অ্যারাইল + অ্যালকাইল = উর্টজ-ফিটিগ।",
-        pdfCitations = listOf("part 2, p. 27"),
-        parts = listOf("part 2"),
+        pdfCitations = listOf("part 2, p. 27", "Hazari & Nag HSC Ch. 2 (#2)"),
+        parts = listOf("part 2", "hazari-nag"),
+        hazariNagChapter = com.example.data.model.HazariNagChapter.HYDROCARBONS_AROMATICS,
+        hazariNagTopicLabel = "হাজারী ও নাগ · Ch.2 #2",
       ),
     )
 }

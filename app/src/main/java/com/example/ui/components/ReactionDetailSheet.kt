@@ -311,6 +311,24 @@ fun ReactionDetailSheet(
         horizontalArrangement = Arrangement.spacedBy(6.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp),
       ) {
+        reaction.hazariNagChapter?.let { chapter ->
+          Surface(
+            shape = RoundedCornerShape(8.dp),
+            color = com.example.ui.theme.EmeraldLight,
+            border = BorderStroke(1.dp, EmeraldAccent.copy(alpha = 0.4f)),
+          ) {
+            Text(
+              text =
+                if (language == AppLanguage.EN) "📘 ${chapter.titleEn}"
+                else "📘 ${chapter.titleBn}",
+              modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+              fontFamily = BengaliFontFamily,
+              fontWeight = FontWeight.Bold,
+              fontSize = 11.sp,
+              color = EmeraldDark,
+            )
+          }
+        }
         reaction.pdfCitations.forEach { cite ->
           Surface(
             shape = RoundedCornerShape(8.dp),
@@ -318,7 +336,7 @@ fun ReactionDetailSheet(
             border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
           ) {
             Text(
-              text = "PDF: $cite",
+              text = "Source: $cite",
               modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
               style = MaterialTheme.typography.labelMedium,
               color = MaterialTheme.colorScheme.onSurfaceVariant,

@@ -77,7 +77,7 @@ fun OrganicChemApp(viewModel: ChemistryViewModel = viewModel()) {
       ),
       Triple(
         MainTab.REACTIONS,
-        if (state.language == AppLanguage.EN) "56 Reactions" else "৫৬ বিক্রিয়া",
+        if (state.language == AppLanguage.EN) "63 Reactions" else "৬৩ বিক্রিয়া",
         Icons.Rounded.Science to Icons.Outlined.Science,
       ),
       Triple(
@@ -180,13 +180,18 @@ fun OrganicChemApp(viewModel: ChemistryViewModel = viewModel()) {
                 searchQuery = state.searchQuery,
                 selectedCategory = state.selectedCategory,
                 selectedPartFilter = state.selectedPartFilter,
+                hazariNagOnly = state.hazariNagOnly,
+                selectedHazariNagChapter = state.selectedHazariNagChapter,
                 showBookmarksOnly = state.showBookmarksOnly,
                 bookmarkedIds = state.bookmarkedIds,
                 onSearchChange = viewModel::updateSearchQuery,
                 onSelectCategory = viewModel::selectCategory,
                 onSelectPartFilter = viewModel::selectPartFilter,
+                onToggleHazariNagOnly = viewModel::toggleHazariNagOnly,
+                onSelectHazariNagChapter = viewModel::selectHazariNagChapter,
                 onToggleBookmarksOnly = viewModel::toggleBookmarksOnly,
                 onToggleBookmark = viewModel::toggleBookmark,
+                onResetAllFilters = viewModel::resetAllFilters,
                 onOpenReaction = viewModel::openReactionDetail,
               )
             MainTab.PRACTICE ->

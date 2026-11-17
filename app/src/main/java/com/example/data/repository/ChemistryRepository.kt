@@ -12,7 +12,10 @@ class ChemistryRepository {
   fun getFunctionalGroups(): List<FunctionalGroupItem> = BasicsData.functionalGroups
 
   fun getAllReactions(): List<NamedReaction> =
-    ReactionsDataPart1.reactions + ReactionsDataPart2.reactions + ReactionsDataPart3.reactions
+    ReactionsDataPart1.reactions +
+      ReactionsDataPart2.reactions +
+      ReactionsDataPart3.reactions +
+      ReactionsDataPart4.reactions
 
   fun getQuizQuestions(): List<QuizQuestion> = BasicsData.quizQuestions
 }

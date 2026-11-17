@@ -12,12 +12,31 @@ enum class MainTab {
 }
 
 enum class ReactionCategory(val labelEn: String, val labelBn: String) {
-  ALL("All (56)", "সকল (৫৬)"),
+  ALL("All (63)", "সকল (৬৩)"),
   NAME_REACTION("Name Reactions", "নামীয় বিক্রিয়া"),
   TEST("Chemical Tests", "শনাক্তকারী পরীক্ষা"),
   RULE("Rules & Concepts", "নীতি ও ধারণা"),
   PREPARATION("Preparations", "প্রস্তুতি পদ্ধতি"),
   REACTION_TYPE("Reaction Types", "বিক্রিয়ার ধরন"),
+}
+
+enum class HazariNagChapter(val titleEn: String, val titleBn: String) {
+  HYDROCARBONS_AROMATICS(
+    "1. Hydrocarbons & Aromatics",
+    "১. হাইড্রোকার্বন ও অ্যারোমেটিক যৌগ",
+  ),
+  ALDEHYDES_KETONES(
+    "2. Aldehydes & Ketones",
+    "২. অ্যালডিহাইড ও কিটোন",
+  ),
+  ALCOHOLS_PHENOLS(
+    "3. Alcohols & Phenols",
+    "৩. অ্যালকোহল ও ফেনল",
+  ),
+  AMINES_NITROGEN(
+    "4. Amines & Nitrogen Compounds",
+    "৪. অ্যামিন ও নাইট্রোজেন ঘটিত যৌগ",
+  ),
 }
 
 enum class HybridizationType(
@@ -134,6 +153,8 @@ data class NamedReaction(
   val examNoteBn: String,
   val pdfCitations: List<String>,
   val parts: List<String>,
+  val hazariNagChapter: HazariNagChapter? = null,
+  val hazariNagTopicLabel: String? = null,
 )
 
 data class QuizQuestion(

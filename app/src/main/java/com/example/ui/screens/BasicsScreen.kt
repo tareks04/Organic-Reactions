@@ -236,8 +236,8 @@ private fun HeroSectionCard(
             Text(
               text =
                 if (language == AppLanguage.EN)
-                  "Master Organic Basics & All 56 Named Reactions"
-                else "জৈব রসায়নের মৌলিক ভিত্তি ও ৫৬টি নামীয় বিক্রিয়া",
+                  "Master Organic Basics & All 63 Named Reactions"
+                else "জৈব রসায়নের মৌলিক ভিত্তি ও ৬৩টি নামীয় বিক্রিয়া",
               fontFamily =
                 if (language == AppLanguage.EN) DisplayFontFamily else BengaliFontFamily,
               fontWeight = FontWeight.ExtraBold,
@@ -253,9 +253,9 @@ private fun HeroSectionCard(
         Text(
           text =
             if (language == AppLanguage.EN)
-              "Explore carbon bonding, sp³/sp²/sp hybridization, functional groups, and every indexed reaction with English & বাংলা explanations."
+              "Explore carbon bonding, sp³/sp²/sp hybridization, functional groups, and every indexed reaction from Hazari & Nag (Ch. 2) and reference parts with English & বাংলা explanations."
             else
-              "কার্বনের বন্ধন, সংকরায়ন, কার্যকরী মূলক এবং প্রতিটি নামীয় বিক্রিয়া, পরীক্ষা ও নীতি ইংরেজি এবং বাংলায় সহজভাবে শিখুন।",
+              "কার্বনের বন্ধন, সংকরায়ন, কার্যকরী মূলক এবং হাজারী ও নাগ (অধ্যায় ২)-সহ প্রতিটি নামীয় বিক্রিয়া, পরীক্ষা ও নীতি ইংরেজি এবং বাংলায় সহজভাবে শিখুন।",
           fontFamily = if (language == AppLanguage.EN) DisplayFontFamily else BengaliFontFamily,
           style = MaterialTheme.typography.bodyMedium,
           color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -268,7 +268,7 @@ private fun HeroSectionCard(
           modifier = Modifier.fillMaxWidth(),
           horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-          StatPill("56", if (language == AppLanguage.EN) "Reactions" else "বিক্রিয়া", Modifier.weight(1f))
+          StatPill("63", if (language == AppLanguage.EN) "Reactions" else "বিক্রিয়া", Modifier.weight(1f))
           StatPill("sp³·sp²·sp", if (language == AppLanguage.EN) "3D Lab" else "সংকরায়ন", Modifier.weight(1f))
           StatPill("EN + বাংলা", if (language == AppLanguage.EN) "Bilingual" else "দ্বিভাষিক", Modifier.weight(1f))
         }
@@ -286,7 +286,7 @@ private fun HeroSectionCard(
             colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.primary),
           ) {
             Text(
-              text = if (language == AppLanguage.EN) "56 Reactions" else "৫৬টি বিক্রিয়া",
+              text = if (language == AppLanguage.EN) "63 Reactions" else "৬৩টি বিক্রিয়া",
               fontFamily =
                 if (language == AppLanguage.EN) DisplayFontFamily else BengaliFontFamily,
               fontWeight = FontWeight.Bold,

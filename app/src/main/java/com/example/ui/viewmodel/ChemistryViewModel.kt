@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.data.model.AppLanguage
 import com.example.data.model.BasicTopic
 import com.example.data.model.FunctionalGroupItem
+import com.example.data.model.HazariNagChapter
 import com.example.data.model.HybridizationType
 import com.example.data.model.MainTab
 import com.example.data.model.NamedReaction
@@ -35,6 +36,8 @@ data class ChemistryUiState(
   val searchQuery: String = "",
   val selectedCategory: ReactionCategory = ReactionCategory.ALL,
   val selectedPartFilter: String = "all",
+  val hazariNagOnly: Boolean = false,
+  val selectedHazariNagChapter: HazariNagChapter? = null,
   val showBookmarksOnly: Boolean = false,
   val bookmarkedIds: Set<Int> = emptySet(),
   val selectedReaction: NamedReaction? = null,
@@ -118,9 +121,43 @@ class ChemistryViewModel(application: Application) : AndroidViewModel(applicatio
     }
   }
 
+  fun toggleHazariNagOnly() {
+    _uiState.update { state ->
+      val nextFlag = !state.hazariNagOnly
+      val next =
+        state.copy(
+          hazariNagOnly = nextFlag,
+          selectedHazariNagChapter = if (nextFlag) state.selectedHazariNagChapter else null,
+        )
+      next.copy(filteredReactions = filterReactions(next))
+    }
+  }
+
+  fun selectHazariNagChapter(chapter: HazariNagChapter?) {
+    _uiState.update { state ->
+      val next = state.copy(hazariNagOnly = true, selectedHazariNagChapter = chapter)
+      next.copy(filteredReactions = filterReactions(next))
+    }
+  }
+
   fun toggleBookmarksOnly() {
     _uiState.update { state ->
       val next = state.copy(showBookmarksOnly = !state.showBookmarksOnly)
+      next.copy(filteredReactions = filterReactions(next))
+    }
+  }
+
+  fun resetAllFilters() {
+    _uiState.update { state ->
+      val next =
+        state.copy(
+          searchQuery = "",
+          selectedCategory = ReactionCategory.ALL,
+          selectedPartFilter = "all",
+          hazariNagOnly = false,
+          selectedHazariNagChapter = null,
+          showBookmarksOnly = false,
+        )
       next.copy(filteredReactions = filterReactions(next))
     }
   }
@@ -227,6 +264,9 @@ class ChemistryViewModel(application: Application) : AndroidViewModel(applicatio
       val catOk =
         state.selectedCategory == ReactionCategory.ALL || r.category == state.selectedCategory
       val partOk = state.selectedPartFilter == "all" || state.selectedPartFilter in r.parts
+      val hazariOk = !state.hazariNagOnly || r.hazariNagChapter != null
+      val chapterOk =
+        state.selectedHazariNagChapter == null || r.hazariNagChapter == state.selectedHazariNagChapter
       val bookmarkOk = !state.showBookmarksOnly || r.id in state.bookmarkedIds
       val searchOk =
         q.isEmpty() ||
@@ -237,9 +277,10 @@ class ChemistryViewModel(application: Application) : AndroidViewModel(applicatio
           r.reagents.lowercase().contains(q) ||
           r.equation.lowercase().contains(q) ||
           r.tags.lowercase().contains(q) ||
+          (r.hazariNagTopicLabel?.lowercase()?.contains(q) == true) ||
           "#${r.id}" == q ||
           "${r.id}" == q
-      catOk && partOk && bookmarkOk && searchOk
+      catOk && partOk && hazariOk && chapterOk && bookmarkOk && searchOk
     }
   }
 }

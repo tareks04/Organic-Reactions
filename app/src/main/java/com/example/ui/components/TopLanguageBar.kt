@@ -103,8 +103,8 @@ fun TopLanguageBar(
             )
             Text(
               text =
-                if (language == AppLanguage.EN) "HSC · Admission · 56 Reactions"
-                else "এইচএসসি · ভর্তি · ৫৬টি বিক্রিয়া",
+                if (language == AppLanguage.EN) "HSC · Hazari & Nag · 63 Reactions"
+                else "এইচএসসি · হাজারী ও নাগ · ৬৩টি বিক্রিয়া",
               fontFamily = if (language == AppLanguage.EN) DisplayFontFamily else BengaliFontFamily,
               fontSize = 11.sp,
               color = Color(0xFFCBD5E1),

@@ -237,6 +237,21 @@ fun ReactionCard(
         horizontalArrangement = Arrangement.spacedBy(6.dp),
         verticalArrangement = Arrangement.spacedBy(6.dp),
       ) {
+        reaction.hazariNagTopicLabel?.let { label ->
+          Surface(
+            shape = RoundedCornerShape(7.dp),
+            color = EmeraldLight,
+          ) {
+            Text(
+              text = "📘 $label",
+              modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+              fontFamily = BengaliFontFamily,
+              fontWeight = FontWeight.Bold,
+              fontSize = 11.sp,
+              color = EmeraldDark,
+            )
+          }
+        }
         MetaChip(text = "🧪 ${reaction.reagents}")
       }
 
