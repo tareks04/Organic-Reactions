@@ -1,0 +1,6 @@
+{
+  "name": "OrganicChem BD",
+  "description": "Bilingual (English & Bangla) Organic Chemistry foundations, interactive hybridization lab, all 56 named reactions, HSC/Admission quiz, and flashcards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
